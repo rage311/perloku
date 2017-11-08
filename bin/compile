@@ -36,3 +36,4 @@ if [ -f $BUILD_DIR/Makefile.PL ] || [ -f $BUILD_DIR/cpanfile ]; then
   echo "Dependencies installed" | indent
 fi
 
+mv "$BUILD_DIR/Perloku" "$BUILD_DIR/Procfile"
