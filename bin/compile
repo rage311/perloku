@@ -8,7 +8,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 PERL_VERSION="5.26.2"
-PERL_PACKAGE="perloku.s3.amazonaws.com/perl-$PERL_VERSION.tgz"
+PERL_PACKAGE="https://github.com/rage311/perloku/raw/$PERL_VERSION/support/perl-$PERL_VERSION.tgz"
 
 VENDORED_PERL="$BUILD_DIR/vendor/perl"
 
