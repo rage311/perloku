@@ -8,7 +8,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 PERL_VERSION="5.26.2"
-PERL_PACKAGE="https://raw.githubusercontent.com/rage311/perloku/master/support/perl-$PERL_VERSION.tgz"
+PERL_PACKAGE="https://raw.githubusercontent.com/judofyr/perloku/master/support/perl-$PERL_VERSION.tgz"
 
 VENDORED_PERL="$BUILD_DIR/vendor/perl"
 
@@ -35,5 +35,3 @@ if [ -f $BUILD_DIR/Makefile.PL ] || [ -f $BUILD_DIR/cpanfile ]; then
 
   echo "Dependencies installed" | indent
 fi
-
-mv "$BUILD_DIR/Perloku" "$BUILD_DIR/Procfile"
