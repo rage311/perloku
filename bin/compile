@@ -8,7 +8,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 
 PERL_VERSION="5.30.0"
-PERL_PACKAGE="https://raw.githubusercontent.com/rage311/perloku/master/support/perl-$PERL_VERSION.tgz"
+#PERL_PACKAGE="https://raw.githubusercontent.com/rage311/perloku/master/support/perl-$PERL_VERSION.tgz"
 PERL_PACKAGE="https://github.com/rage311/heroku-buildpack-perl-procfile/releases/download/v0.3.1-alpha/perl-5.30.0.tar.gz"
 
 VENDORED_PERL="$BUILD_DIR/vendor/perl"
