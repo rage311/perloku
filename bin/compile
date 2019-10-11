@@ -15,7 +15,7 @@ VENDORED_PERL="$BUILD_DIR/vendor/perl"
 
 echo "-----> Vendoring Perl"
 
-mkdir -p $VENDORED_PERL  && curl $PERL_PACKAGE -s -o -  | tar xzf - -C $VENDORED_PERL
+mkdir -p "$VENDORED_PERL" && curl "$PERL_PACKAGE" -L -s -o - | tar xzf - -C "$VENDORED_PERL"
 
 # Set up so we can use Perl right away
 export PATH="$VENDORED_PERL/bin:$PATH"
@@ -30,7 +30,7 @@ if [ -f $BUILD_DIR/Makefile.PL ] || [ -f $BUILD_DIR/cpanfile ]; then
   CPANM="perl -S $(which cpanm) -l $CACHE_DEPS"
 
   mkdir -p "$CACHE_DIR"
-  $CPANM --notest --installdeps "$BUILD_DIR" 2>&1 | indent
+  "$CPANM" --notest --installdeps "$BUILD_DIR" 2>&1 | indent
 
   cp -R "$CACHE_DEPS" "$VENDOR_DEPS"
 
