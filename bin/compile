@@ -26,7 +26,7 @@ echo "Using Perl $PERL_VERSION" | indent
 if [ -f $BUILD_DIR/Makefile.PL ] || [ -f $BUILD_DIR/cpanfile ]; then
   echo "-----> Installing dependencies"
   VENDOR_DEPS="$BUILD_DIR/vendor/perl-deps"
-  CACHE_DEPS="$CACHE_DIR/$PERL_VERSION/perl-deps"
+  CACHE_DEPS="$CACHE_DIR/perl-$PERL_VERSION/perl-deps"
   CPANM="perl -S $(which cpanm) -l $CACHE_DEPS"
   ls -Al "$CACHE_DIR"
   mkdir -p "$CACHE_DIR"
