@@ -18,18 +18,17 @@ echo "-----> Vendoring Perl"
 mkdir -p "$VENDORED_PERL" && curl "$PERL_PACKAGE" -L -s -o - | tar xzf - -C "$VENDORED_PERL"
 
 # Set up so we can use Perl right away
-export PATH="$VENDORED_PERL/perl-$PERL_VERSION/bin:$PATH"
-export PERL5LIB="$VENDORED_PERL/perl-$PERL_VERSION/lib/$PERL_VERSION:$VENDORED_PERL/perl-$PERL_VERSION/lib/site_perl/$PERL_VERSION"
+export PATH="$VENDORED_PERL/bin:$PATH"
+export PERL5LIB="$VENDORED_PERL/lib/$PERL_VERSION:$VENDORED_PERL/lib/site_perl/$PERL_VERSION"
 
 echo "Using Perl $PERL_VERSION" | indent
 
 if [ -f $BUILD_DIR/Makefile.PL ] || [ -f $BUILD_DIR/cpanfile ]; then
   echo "-----> Installing dependencies"
   VENDOR_DEPS="$BUILD_DIR/vendor/perl-deps"
-  CACHE_DEPS="$CACHE_DIR/perl-$PERL_VERSION/perl-deps"
+  CACHE_DEPS="$CACHE_DIR/$PERL_VERSION/perl-deps"
   CPANM="perl -S $(which cpanm) -l $CACHE_DEPS"
-  which cpanm
-  ls -Al "$CACHE_DIR"
+
   mkdir -p "$CACHE_DIR"
   $CPANM --notest --installdeps "$BUILD_DIR" 2>&1 | indent
 
