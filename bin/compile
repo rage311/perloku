@@ -28,6 +28,7 @@ if [ -f $BUILD_DIR/Makefile.PL ] || [ -f $BUILD_DIR/cpanfile ]; then
   VENDOR_DEPS="$BUILD_DIR/vendor/perl-deps"
   CACHE_DEPS="$CACHE_DIR/perl-$PERL_VERSION/perl-deps"
   CPANM="perl -S $(which cpanm) -l $CACHE_DEPS"
+  which cpanm
   ls -Al "$CACHE_DIR"
   mkdir -p "$CACHE_DIR"
   $CPANM --notest --installdeps "$BUILD_DIR" 2>&1 | indent
